@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 void createArray(int array[2][2]);
 int getLineOfSmallerNumberInArray(int array[2][2]);
 
@@ -12,11 +11,12 @@ void main()
     printf("The smaller number is in line: %d", smallerLineNumber);
 }
 
-void createArray(int array[2][2]){
-	array[0][0] = 5;
-	array[0][1] = 6;
-	array[1][0] = 3;
-	array[1][1] = 4;
+void createArray(int array[2][2])
+{
+    array[0][0] = 5;
+    array[0][1] = 6;
+    array[1][0] = 3;
+    array[1][1] = 4;
 }
 
 int getLineOfSmallerNumberInArray(int array[2][2])
@@ -34,6 +34,6 @@ int getLineOfSmallerNumberInArray(int array[2][2])
             }
         }
     }
-    
-	return lineOfSmaller;
+
+    return lineOfSmaller;
 }
