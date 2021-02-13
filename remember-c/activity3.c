@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-void showPirametNumbers(int, int);
+void showPyramidNumbers(int, int);
 int readNumber();
 
 void main()
 {
     int maxNumber = readNumber();
-    showPirametNumbers(maxNumber, 0);
+    showPyramidNumbers(maxNumber, 0);
 }
 
-void showPirametNumbers(int maxValue, int current)
+void showPyramidNumbers(int maxValue, int current)
 {
     for (int i = 0; i < maxValue - current; i++)
     {
@@ -27,7 +27,7 @@ void showPirametNumbers(int maxValue, int current)
 
     if (current < (maxValue / 2) + 1)
     {
-        showPirametNumbers(maxValue, current + 1);
+        showPyramidNumbers(maxValue, current + 1);
     }
 }
 
