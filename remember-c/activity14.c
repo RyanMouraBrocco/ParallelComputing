@@ -14,6 +14,7 @@
 int getPosition(char string[MAX_STR], char item);
 void addCharacter(char string[MAX_STR], char newString[MAX_STR], int addedPosition, char newCharacter);
 int readPosition();
+int stringCount(char string[MAX_STR]);
 
 void main()
 {
@@ -46,14 +47,27 @@ void addCharacter(char string[MAX_STR], char newString[MAX_STR], int addedPositi
 
         currentPositon++;
     }
+
+    newString[currentPositon] = '\0';
 }
 
-int readPosition()
+int readPosition(char string[MAX_STR])
 {
     int positon = 0;
-    while (positon <= 0 || positon >= MAX_STR)
+    int stringLength = stringCount(string);
+    while (positon <= 0 || positon >= stringLength)
     {
-        positon = readNumber("write a position of text to add new character (number between 1 and 100)");
+        positon = readNumber("write a position of text to add new character");
     }
     return positon;
+}
+
+int stringCount(char string[MAX_STR])
+{
+    int quantity = 0;
+    while (string[quantity] != '\0')
+    {
+        quantity++;
+    }
+    return quantity;
 }
