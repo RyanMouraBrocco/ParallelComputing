@@ -15,13 +15,14 @@
 */
 
 #include <stdio.h>
+#include "inputs.h"
 
 void showPyramidNumbers(int, int);
-int readNumber();
+int readOddNumber();
 
 void main()
 {
-    int maxNumber = readNumber();
+    int maxNumber = readOddNumber();
     showPyramidNumbers(maxNumber, 0);
 }
 
@@ -47,13 +48,12 @@ void showPyramidNumbers(int maxValue, int current)
     }
 }
 
-int readNumber()
+int readOddNumber()
 {
     int number = 0;
     while (number % 2 == 0)
     {
-        printf("Write a odd number: ");
-        scanf("%d", &number);
+        number = readNumber("Write a odd number");
     }
 
     return number;
