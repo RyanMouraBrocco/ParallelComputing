@@ -8,7 +8,6 @@
 
 */
 
-
 #include <stdio.h>
 #include "inputs.h"
 
@@ -21,9 +20,16 @@ void main()
     readString("write some text", string);
     char item = readCharacter("write character to remove");
     int position = getPosition(string, item);
-    char stringResult[MAX_STR];
-    removeCharacter(string, stringResult, position);
-    printf("text result: %s", stringResult);
+    if (position > -1)
+    {
+        char stringResult[MAX_STR];
+        removeCharacter(string, stringResult, position);
+        printf("text result: %s", stringResult);
+    }
+    else
+    {
+        printf("character not found");
+    }
 }
 
 void removeCharacter(char string[MAX_STR], char newString[MAX_STR], int removedPosition)
