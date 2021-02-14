@@ -9,7 +9,7 @@ void multiplyColumn(int[MAX_R][MAX_C], int, int, int);
 void main()
 {
     int matrixRowSize = readMatrixSize(1);
-    int matrixColumnSize = readMatrixSize(2);
+    int matrixColumnSize = readMatrixSize(0);
     int matrix[MAX_R][MAX_C];
     readMatrix(matrix, matrixRowSize, matrixColumnSize);
     int number = readNumber("write number to multiply");
@@ -27,12 +27,12 @@ void main()
     showMatrix(matrix, matrixRowSize, matrixColumnSize);
 }
 
-int readRowColumnNumber(int isRow, int matrixLineSize, int matrixColumnSize)
+int readRowColumnNumber(int isRow, int matrixRowSize, int matrixColumnSize)
 {
     int value = -1;
     if (isRow == 1)
     {
-        while (value < 0 || value > matrixLineSize - 1)
+        while (value < 0 || value > matrixRowSize - 1)
         {
             value = readNumber("write a row number");
         }
@@ -48,9 +48,9 @@ int readRowColumnNumber(int isRow, int matrixLineSize, int matrixColumnSize)
     return value;
 }
 
-void showMatrix(int matrix[MAX_R][MAX_C], int matrixLineSize, int matrixColumnSize)
+void showMatrix(int matrix[MAX_R][MAX_C], int matrixRowSize, int matrixColumnSize)
 {
-    for (int i = 0; i < matrixLineSize; i++)
+    for (int i = 0; i < matrixRowSize; i++)
     {
         printf("[");
         for (int j = 0; j < matrixColumnSize; j++)
