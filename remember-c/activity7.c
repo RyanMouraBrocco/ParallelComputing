@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "inputs.h"
 #define MAX 3
 
 typedef struct Person
@@ -12,7 +13,6 @@ typedef struct Person
 void showPeople(Person[MAX], int);
 void showPerson(Person);
 Person readPerson();
-void flushIn();
 
 void main()
 {
@@ -30,15 +30,10 @@ void main()
 Person readPerson()
 {
     Person newPerson;
-    printf("write the person name: ");
-    scanf("%s", &newPerson.name);
-    flushIn();
-    printf("write the age person: ");
-    scanf(" %d", &newPerson.age);
-    printf("write the weight person: ");
-    scanf(" %lf", &newPerson.weight);
-    printf("write the height person: ");
-    scanf(" %lf", &newPerson.height);
+    readString("write the person name", newPerson.name);
+    newPerson.age = readNumber("write the age person");
+    newPerson.weight = readDouble("write the weight person");
+    newPerson.height = readDouble("write the height person");
 
     return newPerson;
 }
@@ -58,12 +53,4 @@ void showPerson(Person person)
     printf("\tage: %d\n", person.age);
     printf("\tweight: %lf\n", person.weight);
     printf("\theight: %lf\n", person.height);
-}
-
-void flushIn()
-{
-    int ch;
-    while ((ch = fgetc(stdin)) != EOF && ch != '\n')
-    {
-    }
 }
