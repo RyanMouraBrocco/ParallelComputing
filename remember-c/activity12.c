@@ -1,5 +1,14 @@
+/*
+
+* Ryan Moura Brocco
+
+* 32175566
+
+* 12. Faça uma função que retorne a posição de um dado caracter dentro de uma string.
+
+*/
+
 #include <stdio.h>
-#include <string.h>
 #include "inputs.h"
 
 int getPosition(char[MAX_STR], char);

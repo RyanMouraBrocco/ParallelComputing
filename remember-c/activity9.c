@@ -1,3 +1,13 @@
+/*
+
+* Ryan Moura Brocco
+
+* 32175566
+
+* 9 Crie uma função capaz de substituir todos os números negativos de uma matriz por seu módulo.
+
+*/
+
 #include <stdio.h>
 #include "inputs.h"
 

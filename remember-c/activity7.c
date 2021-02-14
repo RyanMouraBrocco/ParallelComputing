@@ -1,3 +1,13 @@
+/*
+
+* Ryan Moura Brocco
+
+* 32175566
+
+* 7. Faça um programa que crie um vetor de pessoas. Os dados de uma pessoa devem ser armazenados em um variavel do tipo struct. O programa deve permitir que o usuário digite o nome de 3 pessoas e a seguir imprimi os dados de todas as pessoas. A struct deve armazenar os dados de idade, peso e altura.
+
+*/
+
 #include <stdio.h>
 #include "inputs.h"
 #define MAX 3

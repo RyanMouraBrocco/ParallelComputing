@@ -1,3 +1,12 @@
+/*
+
+* Ryan Moura Brocco
+
+* 32175566
+
+* 4. Crie um progama capaz de ler dois nomes de pessoas e imprimi-los em ordem alfabética. Faça isto com string de C e de C++
+
+*/
 #include <stdio.h>
 
 void printAlphabetically(char[60], char[60]);

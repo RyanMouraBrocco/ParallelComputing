@@ -1,3 +1,14 @@
+/*
+
+* Ryan Moura Brocco
+
+* 32175566
+
+* 6. Crie um programa capaz de criar a transposta de uma matriz. A matriz deve ser lida de teclado.
+* 8. Crie uma função capaz de criar a transposta de uma matriz.
+
+*/
+
 #include <stdio.h>
 #include "inputs.h"
 
