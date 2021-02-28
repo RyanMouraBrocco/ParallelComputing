@@ -1,3 +1,14 @@
+/*
+
+* Ryan Moura Brocco
+
+* 32175566
+
+* Escreva um programa que leia um arquivo texto com o nome, a idade e a altura de um conjunto de pessoa.
+  Coloque os dados em um vetor de Structs e ordene o vetor por altura. No final, gere um novo arquivo com os dados ordenados
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
