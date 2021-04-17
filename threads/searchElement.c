@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <omp.h>
 
 int numberToFind;
@@ -54,10 +53,14 @@ void find(void)
 
     for (int i = beginIndex; i < endIndex; i++)
     {
+        if(found == 1)
+            break;
+
         if (array[i] == numberToFind)
         {
             position = i;
             found = 1;
+            break;
         }
     }
 }
@@ -75,11 +78,4 @@ void populateArray()
     }
 
     fclose(file);
-}
-
-double getTime()
-{
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    return (double)tv.tv_sec + (double)tv.tv_usec / 1000000.0;
 }
