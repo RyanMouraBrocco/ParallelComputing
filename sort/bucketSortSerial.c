@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <sys/time.h>
 
-#define MAX 200
+#define MAX_BUCKET 5000
 
 typedef struct
 {
     int index;
-    int items[MAX];
+    int items[MAX_BUCKET];
 } bucket;
 
 void bucketSort(int[], int, int);
@@ -16,13 +18,32 @@ void sortBuckets(bucket[], int);
 void setSortedArray(int[], bucket[], int);
 void insertionSort(int[], int);
 void printArray(int[], int);
+void createRadomArray(int[], int);
+double getTime();
 
-void main()
+void main(int argc, char *argv[])
 {
-    int arr[] = {12, 11, 13, 5, 6};
-    int n = 5;
-    bucketSort(arr, n, 5);
-    printArray(arr, n);
+    double startValue, endValue, total;
+    srand(time(NULL));
+    int length = strtol(argv[1], NULL, 10);
+    int *arr = malloc(length * sizeof(int));
+    createRadomArray(arr, length);
+
+    startValue = getTime();
+    bucketSort(arr, length, 5);
+
+    endValue = getTime();
+    total = endValue - startValue;
+
+    printf("sort array of length: %d, time %f usecs\n ", length, total);
+}
+
+void createRadomArray(int array[], int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        array[i] = rand() % 6000;
+    }
 }
 
 void bucketSort(int array[], int arrayLength, int bucketQuantity)
@@ -103,4 +124,11 @@ void printArray(int array[], int length)
     }
 
     printf("\n");
+}
+
+double getTime()
+{
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (double)tv.tv_sec + (double)tv.tv_usec / 1000000.0;
 }
