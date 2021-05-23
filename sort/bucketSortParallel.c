@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
 #define MAX 200
 
@@ -36,6 +37,7 @@ void bucketSort(int array[], int arrayLength, int bucketQuantity)
 
 void setBeginIndex(bucket array[], int length)
 {
+#pragma omp parallel for
     for (int i = 0; i < length; i++)
     {
         array[i].index = 0;
@@ -44,14 +46,18 @@ void setBeginIndex(bucket array[], int length)
 
 void setBucketsValues(int array[], int arrayLength, bucket buckets[], int bucketQuantity)
 {
+#pragma omp parallel for
     for (int i = 0; i < arrayLength; i++)
     {
         for (int j = bucketQuantity - 1; j >= 0; j--)
         {
             if (array[i] >= j * 10)
             {
-                buckets[j].items[buckets[j].index] = array[i];
-                buckets[j].index += 1;
+#pragma omp critical
+                {
+                    buckets[j].items[buckets[j].index] = array[i];
+                    buckets[j].index += 1;
+                }
                 break;
             }
         }
@@ -60,6 +66,7 @@ void setBucketsValues(int array[], int arrayLength, bucket buckets[], int bucket
 
 void sortBuckets(bucket buckets[], int bucketQuantity)
 {
+#pragma omp parallel for
     for (int i = 0; i < bucketQuantity; i++)
         if (buckets[i].index > 0)
             insertionSort(buckets[i].items, buckets[i].index);
